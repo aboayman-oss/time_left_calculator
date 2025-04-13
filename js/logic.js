@@ -55,6 +55,7 @@ export function updateCountdown() {
   `;
 
   document.getElementById("finalTime").innerHTML = `Final Time Left:<br>${formatTime(finalMs)}`;
+  document.getElementById("finalTime").style.display = "block";
 
   const badge = document.getElementById('badge');
   let result = "";
