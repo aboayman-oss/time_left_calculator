@@ -37,7 +37,9 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  width: 95%; max-width: 420px; text-align: center;
+  width: 95%; max-width: 420px;
+  display: flex;
+  flex-direction: column;
 }
 
 input, button, select {
@@ -46,7 +48,7 @@ input, button, select {
   border-radius: 0.5rem; border: none;
 }
 
-input, select {
+select, input {
   background-color: #2c2c2c;
   color: var(--text);
 }
@@ -56,7 +58,7 @@ input, select {
 
 button {
   background-color: var(--primary);
-  color: #fff; cursor: pointer; transition: 0.2s;
+  color: #fff; cursor: pointer;
 }
 button:hover {
   background-color: #1565c0;
@@ -68,8 +70,8 @@ button:hover {
 .progress {
   margin-top: 0.5rem;
   background: #444;
-  border-radius: 0.5rem;
-  height: 1.75rem;
+  border-radius: 1rem;
+  height: 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -84,7 +86,7 @@ button:hover {
 }
 .bar-text {
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 .summary-box {
@@ -93,10 +95,6 @@ button:hover {
   padding: 1rem;
   margin-top: 1.5rem;
   text-align: left;
-}
-.error {
-  color: var(--error);
-  font-size: 0.9rem;
 }
 .save-box {
   background-color: var(--green);
@@ -116,10 +114,21 @@ button:hover {
 }
 .countdown-box {
   margin-top: 1rem;
-  padding: 1rem;
-  font-size: 1.5rem;
+  padding: 1.25rem;
+  font-size: 1.75rem;
   font-weight: bold;
   background-color: var(--card);
   border: 2px solid var(--primary);
   border-radius: 1rem;
+  text-align: center;
+}
+.final-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 1rem;
+  text-align: center;
 }

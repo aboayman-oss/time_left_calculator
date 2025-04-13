@@ -37,17 +37,24 @@ export function updateCountdown() {
   const cappedCourseMs = Math.min(courseMs, remaining - cappedSleepMs);
   const finalMs = Math.max(remaining - cappedSleepMs - cappedCourseMs, 0);
 
-  updateBar("sleepBar", cappedSleepMs / remaining);
-  updateBar("courseBar", cappedCourseMs / remaining);
+  // update bars with color logic
+  const sleepPct = Math.min(sleep / 8, 1);
+  let sleepColor = sleep < 8 ? 'var(--green)' : (sleep === 8 ? 'var(--accent)' : 'var(--red)');
+  updateBar('sleepBar', sleepPct, sleepColor);
 
-  animateText(document.getElementById("countdown"), `⏰ ${formatTime(finalMs)} left`);
+  const coursePct = course === 0 ? 0 : Math.min(courseMs / (course * 3600000), 1);
+  let courseColor = courseMs < course * 3600000 ? 'var(--green)' : 'var(--accent)';
+  updateBar('courseBar', coursePct, courseColor);
+
+  animateText(document.getElementById('countdown'), `⏰ ${formatTime(finalMs)} left`);
 
   document.getElementById("summary").innerHTML = `
     <p><strong>Original:</strong> ${formatTime(remaining)}</p>
     <p><strong>– Sleep (${sleep}h/day):</strong> ${formatTime(cappedSleepMs)}</p>
-    <p><strong>– Courses (${course}h @ ${speed}x):</strong> ${formatTime(cappedCourseMs)}</p>
-    <p><strong>= Final:</strong> ${formatTime(finalMs)}</p>
+    <p><strong>– Courses (${course}h at ${speed}x):</strong> ${formatTime(cappedCourseMs)}</p>
   `;
+
+  document.getElementById("finalTime").innerText = `= Final Time Left: ${formatTime(finalMs)}`;
 
   const badge = document.getElementById('badge');
   let result = "";
@@ -77,5 +84,6 @@ export function resetApp() {
   document.getElementById('courseBar').style.width = '0';
   document.getElementById('badge').style.display = 'none';
   document.getElementById('badge').innerHTML = '';
+  document.getElementById('finalTime').innerHTML = '';
   animateText(document.getElementById('countdown'), '⏳');
 }

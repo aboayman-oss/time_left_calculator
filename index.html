@@ -11,26 +11,34 @@
 </head>
 <body>
   <div class="container">
-    <h1>Time Left</h1>
+    <h1>Time Left Calculator</h1>
     <button onclick="togglePicker()">Pick Date & Time</button>
     <div id="datetime-picker" style="display:none;"></div>
 
-    <div class="actions">
-      <button onclick="startCalculation()">Calculate</button>
-      <button onclick="resetApp()">Reset</button>
-    </div>
+    <div class="bottom-block">
+      <div class="actions">
+        <button onclick="startCalculation()">Calculate</button>
+        <button onclick="resetApp()">Reset</button>
+      </div>
 
-    <div class="countdown-box" id="countdown">⏳</div>
+      <div class="countdown-box" id="countdown">⏳</div>
 
-    <div class="actions">
-      <button onclick="toggleTheme()">🌗 Theme</button>
+      <div class="actions">
+        <button onclick="toggleTheme()">🌗 Theme</button>
+      </div>
     </div>
 
     <div id="sleep-block" class="block" style="display:none;">
       <label>Sleep hours per day:</label>
-      <input type="number" id="sleepHours" min="0" inputmode="numeric"/>
+      <select id="sleepHours">
+        <option value="">-- Select Hours --</option>
+        <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+        <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        <option value="6">6</option><option value="7">7</option><option value="8">8</option>
+        <option value="9">9</option><option value="10">10</option><option value="11">11</option>
+        <option value="12">12</option>
+      </select>
       <div class="progress"><div id="sleepBar" class="bar"><span id="sleepPct" class="bar-text"></span></div></div>
-      <div id="sleepError" class="error"></div>
     </div>
 
     <div id="course-block" class="block" style="display:none;">
@@ -43,13 +51,12 @@
         <option value="2">2x</option>
       </select>
       <div class="progress"><div id="courseBar" class="bar"><span id="coursePct" class="bar-text"></span></div></div>
-      <div id="courseError" class="error"></div>
     </div>
 
     <div id="badge" style="display:none;"></div>
     <div id="summary" class="summary-box"></div>
+    <div id="finalTime" class="final-box"></div>
   </div>
-
   <script type="module" src="./js/main.js"></script>
 </body>
 </html>
