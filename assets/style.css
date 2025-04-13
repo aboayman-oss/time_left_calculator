@@ -132,3 +132,8 @@ button:hover {
   border-radius: 1rem;
   text-align: center;
 }
+/* Hide empty elements by default */
+#badge,
+#finalTime {
+  display: none;
+}
