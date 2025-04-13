@@ -6,6 +6,8 @@
   --text: #ffffff;
   --accent: #90caf9;
   --error: #ef5350;
+  --green: #2e7d32;
+  --red: #c62828;
 }
 
 [data-theme="light"] {
@@ -16,24 +18,16 @@
   --accent: #1976d2;
 }
 
-html {
-  font-size: clamp(14px, 2.5vw, 16px);
-}
-
-* {
-  box-sizing: border-box;
-}
+html { font-size: clamp(14px, 2.5vw, 16px); }
+* { box-sizing: border-box; }
 
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  margin: 0; padding: 0;
+  display: flex; justify-content: center;
+  flex-direction: column; align-items: center;
   min-height: 100vh;
 }
 
@@ -43,74 +37,69 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  width: 95%;
-  max-width: 420px;
-  text-align: center;
+  width: 95%; max-width: 420px; text-align: center;
 }
 
 input, button, select {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  margin-top: 0.75rem;
-  border-radius: 0.5rem;
-  border: none;
+  width: 100%; padding: 0.75rem;
+  font-size: 1rem; margin-top: 0.75rem;
+  border-radius: 0.5rem; border: none;
 }
 
 input, select {
   background-color: #2c2c2c;
   color: var(--text);
 }
-
-[data-theme="light"] input,
-[data-theme="light"] select {
-  background-color: #eee;
-  color: #000;
+[data-theme="light"] input, [data-theme="light"] select {
+  background-color: #eee; color: #000;
 }
 
 button {
   background-color: var(--primary);
-  color: #fff;
-  cursor: pointer;
-  transition: 0.2s;
+  color: #fff; cursor: pointer; transition: 0.2s;
 }
-
 button:hover {
   background-color: #1565c0;
   transform: scale(1.02);
 }
 
-.actions, .block {
-  margin-top: 1.25rem;
-}
+.actions, .block { margin-top: 1.25rem; }
 
 .progress {
   margin-top: 0.5rem;
   background: #444;
   border-radius: 0.5rem;
+  height: 1.75rem;
+  position: relative;
   overflow: hidden;
-  height: 1rem;
 }
-
 .bar {
   height: 100%;
   background-color: var(--accent);
   width: 0;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.summary {
-  margin-top: 1rem;
+.bar-text {
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.summary-box {
+  background-color: #1a1a1a;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
   text-align: left;
 }
-
 .error {
   color: var(--error);
-  margin-top: 0.5rem;
   font-size: 0.9rem;
 }
-
 .save-box {
-  background-color: #2e7d32;
+  background-color: var(--green);
   color: white;
   font-weight: 600;
   margin-top: 0.5rem;
@@ -118,13 +107,19 @@ button:hover {
   border-radius: 0.5rem;
 }
 .lost-box {
-  background-color: #c62828;
+  background-color: var(--red);
   color: white;
   font-weight: 600;
   margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
-.actions:last-of-type {
-  margin-bottom: 2rem;
+.countdown-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--card);
+  border: 2px solid var(--primary);
+  border-radius: 1rem;
 }
